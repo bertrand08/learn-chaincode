@@ -19,7 +19,6 @@ package main
 import (
 	"errors"
 	"fmt"
-
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 )
 
@@ -33,7 +32,7 @@ type SimpleChaincode struct {
 func main() {
 	err := shim.Start(new(SimpleChaincode))
 	if err != nil {
-		fmt.Printf("Error starting Simple chaincode: %s", err)
+		fmt.Printf("Error starting le Simple chaincode: %s", err)
 	}
 }
 
@@ -54,7 +53,7 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	var key, value string
 	var err error
-	fmt.Println("running write()!")
+	fmt.Println("je suis running write()!")
 
 	if len(args) != 2 {
 		return nil, errors.New("Incorrect number of arguments.  Expecting 2: name of the key and value to set")
@@ -72,6 +71,8 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
 func (t *SimpleChaincode) read(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
   var key, jsonResp string
 	var err error
+
+	fmt.Println("je suis running read()!")
 
 	if len(args) != 1 {
 		return nil, errors.New("Incorrect number of arguments")
